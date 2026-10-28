@@ -1,0 +1,8 @@
+{
+  "name": "Remix BSOD Troubleshooting | Contact @ey_elisee",
+  "description": "Interactive Windows Blue Screen of Death troubleshooting companion and cute developer contact portal for @ey_elisee.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
