@@ -3,7 +3,7 @@ import { AppScreen } from './types';
 import { Screen1 } from './components/Screen1';
 import { RepairProgress } from './components/RepairProgress';
 import { Screen2 } from './components/Screen2';
-import { Screen3 } from './components/Screen3';
+import { ScreenSystemFailure } from './components/ScreenSystemFailure';
 import { Screen4 } from './components/Screen4';
 
 export default function App() {
@@ -24,23 +24,32 @@ export default function App() {
 
         {screen === 'DIAGNOSTIC_LOAD' && (
           <RepairProgress
-            onRepairComplete={() => setScreen('SCREEN_2')}
+            speed="normal"
+            onRepairComplete={() => setScreen('SYSTEM_DIAGNOSTICS')}
           />
         )}
 
-        {screen === 'SCREEN_2' && (
+        {screen === 'SYSTEM_DIAGNOSTICS' && (
           <Screen2
-            onTryRepair={() => setScreen('SCREEN_3')}
+            onTooDrunk={() => setScreen('SYSTEM_FAILURE')}
+            onMeetDeveloper={() => setScreen('SUPPORT_TICKET')}
           />
         )}
 
-        {screen === 'SCREEN_3' && (
-          <Screen3
-            onContactHumanSupport={() => setScreen('SCREEN_4')}
+        {screen === 'SYSTEM_FAILURE' && (
+          <ScreenSystemFailure
+            onReload={() => setScreen('QUICK_RELOAD')}
           />
         )}
 
-        {screen === 'SCREEN_4' && (
+        {screen === 'QUICK_RELOAD' && (
+          <RepairProgress
+            speed="fast"
+            onRepairComplete={() => setScreen('SYSTEM_DIAGNOSTICS')}
+          />
+        )}
+
+        {screen === 'SUPPORT_TICKET' && (
           <Screen4
             onRestart={handleRestart}
           />

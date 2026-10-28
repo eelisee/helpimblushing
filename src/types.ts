@@ -1,6 +1,7 @@
 export type AppScreen =
-  | 'SCREEN_1'           // Troubleshooting Results
-  | 'DIAGNOSTIC_LOAD'    // Slower diagnostic progress bar
-  | 'SCREEN_2'           // Diagnostics: "... Oh. It’s me."
-  | 'SCREEN_3'           // Repair attempt: "REPAIR FAILED. The problem appears to be out of our hands."
-  | 'SCREEN_4';          // Support Ticket Created (Instagram DM)
+  | 'SCREEN_1'              // Troubleshooting Results
+  | 'DIAGNOSTIC_LOAD'       // Initial ~5.5s diagnostic load bar
+  | 'SYSTEM_DIAGNOSTICS'    // "SYSTEM DIAGNOSTICS COMPLETE ... It’s you."
+  | 'SYSTEM_FAILURE'        // "SYSTEM FAILURE" -> [ RELOAD ]
+  | 'QUICK_RELOAD'          // Quick reload bar (~1.8s) -> back to SYSTEM_DIAGNOSTICS
+  | 'SUPPORT_TICKET';       // "SUPPORT TICKET CREATED" with pre-set flirt message & Instagram
