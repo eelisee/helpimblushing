@@ -7,9 +7,9 @@ interface Screen3Props {
 
 const LINES = [
   { text: 'Attempting to resolve the issue…', delayAfter: 800 },
-  { text: 'Running repair protocol...', delayAfter: 1000 },
-  { text: 'REPAIR FAILED.', delayAfter: 900 },
-  { text: 'The problem appears to be out of our hands.', delayAfter: 400 },
+  { text: 'Running repair protocol...', delayAfter: 1100 },
+  { text: 'REPAIR FAILED.', delayAfter: 1000 },
+  { text: 'The problem appears to be out of our hands.', delayAfter: 700 },
 ];
 
 export const Screen3: React.FC<Screen3Props> = ({ onContactHumanSupport }) => {
