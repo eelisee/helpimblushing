@@ -10,7 +10,7 @@ const LINES = [
   { text: 'Checking source of the problem…', delayAfter: 800 },
   { text: 'SOURCE IDENTIFIED.', delayAfter: 1200 },
   { text: 'Oh.', delayAfter: 1100 },
-  { text: 'It’s me.', delayAfter: 700 },
+  { text: 'It’s you.', delayAfter: 700 },
 ];
 
 export const Screen2: React.FC<Screen2Props> = ({ onTryRepair }) => {
