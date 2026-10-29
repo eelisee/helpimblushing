@@ -2,10 +2,11 @@ import React from 'react';
 import { BsodEmoticon } from './BsodEmoticon';
 
 interface Screen1Props {
-  onTryRepair: () => void;
+  onRunDiagnostics: () => void;
+  onTooDrunk: () => void;
 }
 
-export const Screen1: React.FC<Screen1Props> = ({ onTryRepair }) => {
+export const Screen1: React.FC<Screen1Props> = ({ onRunDiagnostics, onTooDrunk }) => {
   return (
     <div className="w-full max-w-2xl mx-auto px-5 sm:px-8 py-8 sm:py-16 text-white font-mono select-none">
       {/* Authentic Windows Sad Face */}
@@ -23,13 +24,20 @@ export const Screen1: React.FC<Screen1Props> = ({ onTryRepair }) => {
         </div>
       </div>
 
-      {/* Retro Action Button */}
-      <div className="pt-2">
+      {/* Action Buttons: Primary RUN DIAGNOSTICS and decent I'M TOO DRUNK FOR THIS */}
+      <div className="pt-2 flex flex-col items-start gap-3 sm:gap-3.5">
         <button
-          onClick={onTryRepair}
+          onClick={onRunDiagnostics}
           className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-[#0078d7] hover:bg-white/90 active:bg-white/80 font-mono font-bold text-base sm:text-lg tracking-wider border-2 border-white rounded-none cursor-pointer transition-transform active:translate-y-0.5 shadow-md focus:outline-none whitespace-nowrap"
         >
           [ RUN DIAGNOSTICS ]
+        </button>
+
+        <button
+          onClick={onTooDrunk}
+          className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 bg-transparent hover:bg-white/10 active:bg-white/20 text-white/85 hover:text-white font-mono font-semibold text-xs sm:text-sm tracking-wider border border-white/50 hover:border-white rounded-none cursor-pointer transition-colors focus:outline-none whitespace-nowrap"
+        >
+          [ I'M TOO DRUNK FOR THIS ]
         </button>
       </div>
     </div>
