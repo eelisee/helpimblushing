@@ -20,12 +20,15 @@
  *    - Bakers & Commons / Gara (Berkeley)
  *    - Exploratorium After Dark (San Francisco)
  *    - Fort Mason Center for Arts & Culture (San Francisco)
+ * 4. Custom Initiative (User's own proposed idea):
+ *    - Overrides and outputs the highest match coefficient (+0.45)
  */
 
 export interface CandidateFeatures {
   locationId: string;
   topics: string[];
   beverage: 'good_wine' | 'espresso_martini' | 'craft_coffee' | 'draft_beer';
+  customProposal?: string;
 }
 
 export interface TrainingEpochLog {
@@ -184,10 +187,19 @@ export function predictDateMatch(features: CandidateFeatures): InferenceResult {
   // Calculate positive feature attributions based on user's choices
   const attributions: FeatureAttribution[] = [];
 
-  // Venue contribution
+  // Custom User Proposal gets HIGHEST priority and score (+0.45)
+  if (features.customProposal && features.customProposal.trim()) {
+    attributions.push({
+      featureName: `Custom Idea: "${features.customProposal.trim()}"`,
+      coefficient: 0.45,
+    });
+  }
+
+  // Beverage contribution
+  const bevItem = BEVERAGE_WEIGHTS[features.beverage] || BEVERAGE_WEIGHTS.good_wine;
   attributions.push({
-    featureName: `Location Affinity (${selectedVenue.name})`,
-    coefficient: 0.35,
+    featureName: `Beverage Calibration (${bevItem.label})`,
+    coefficient: bevItem.weight,
   });
 
   // Topics contribution
@@ -202,12 +214,14 @@ export function predictDateMatch(features: CandidateFeatures): InferenceResult {
     }
   });
 
-  // Beverage contribution
-  const bevItem = BEVERAGE_WEIGHTS[features.beverage] || BEVERAGE_WEIGHTS.good_wine;
+  // Venue contribution
   attributions.push({
-    featureName: `Beverage Calibration (${bevItem.label})`,
-    coefficient: bevItem.weight,
+    featureName: `Location Affinity (${selectedVenue.name})`,
+    coefficient: 0.35,
   });
+
+  // Sort attributions by coefficient descending so the highest match is always on top
+  attributions.sort((a, b) => b.coefficient - a.coefficient);
 
   // Feature scores vector for ML training
   const featureScores = attributions.map((a) => a.coefficient);

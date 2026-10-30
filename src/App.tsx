@@ -37,11 +37,6 @@ export default function App() {
     setScreen('SCREEN_1');
   };
 
-  const handleOpenProtocol = () => {
-    window.location.hash = '/model';
-    setScreen('PROJECT_02');
-  };
-
   const handleReturnToBsod = () => {
     window.location.hash = '';
     setScreen('SCREEN_1');
@@ -65,14 +60,14 @@ export default function App() {
 
         {screen === 'SYSTEM_DIAGNOSTICS' && (
           <Screen2
-            onMeetDeveloper={() => setScreen('SUPPORT_TICKET')}
+            onPersonalVisit={() => setScreen('PROJECT_02')}
+            onOpenSupportTicket={() => setScreen('SUPPORT_TICKET')}
           />
         )}
 
         {screen === 'SUPPORT_TICKET' && (
           <Screen4
             onRestart={handleRestart}
-            onOpenProtocol={handleOpenProtocol}
           />
         )}
 

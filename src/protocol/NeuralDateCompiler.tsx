@@ -25,98 +25,129 @@ interface DateSlotOption {
   times: TimeSlotItem[];
 }
 
+// Standard time slot definitions
+const TIMES_6PM_TO_8PM: TimeSlotItem[] = [
+  { label: '6:00 PM', startHour: 18 },
+  { label: '7:00 PM', startHour: 19 },
+  { label: '8:00 PM', startHour: 20 },
+];
+
+const TIMES_5PM_TO_8PM: TimeSlotItem[] = [
+  { label: '5:00 PM', startHour: 17 },
+  { label: '6:00 PM', startHour: 18 },
+  { label: '7:00 PM', startHour: 19 },
+  { label: '8:00 PM', startHour: 20 },
+];
+
+const TIMES_1PM_TO_8PM: TimeSlotItem[] = [
+  { label: '1:00 PM', startHour: 13 },
+  { label: '2:00 PM', startHour: 14 },
+  { label: '3:00 PM', startHour: 15 },
+  { label: '4:00 PM', startHour: 16 },
+  { label: '5:00 PM', startHour: 17 },
+  { label: '6:00 PM', startHour: 18 },
+  { label: '7:00 PM', startHour: 19 },
+  { label: '8:00 PM', startHour: 20 },
+];
+
 const AVAILABLE_DATES: DateSlotOption[] = [
   {
     dateLabel: 'Tuesday, Nov 3',
     isoDate: '20261103',
-    times: [
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_6PM_TO_8PM,
   },
   {
     dateLabel: 'Wednesday, Nov 4',
     isoDate: '20261104',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_5PM_TO_8PM,
   },
   {
     dateLabel: 'Thursday, Nov 5',
     isoDate: '20261105',
-    times: [
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_6PM_TO_8PM,
   },
+  // Sunday, 8th of November, until Friday 13th of November
   {
-    dateLabel: 'Sunday, Nov 7',
-    isoDate: '20261107',
-    times: [
-      { label: '1:00 PM', startHour: 13 },
-      { label: '2:00 PM', startHour: 14 },
-      { label: '3:00 PM', startHour: 15 },
-      { label: '4:00 PM', startHour: 16 },
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
-  },
-  {
-    dateLabel: 'Monday, Nov 8',
+    dateLabel: 'Sunday, Nov 8',
     isoDate: '20261108',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_1PM_TO_8PM,
   },
   {
-    dateLabel: 'Tuesday, Nov 9',
+    dateLabel: 'Monday, Nov 9',
     isoDate: '20261109',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_5PM_TO_8PM,
   },
   {
-    dateLabel: 'Wednesday, Nov 10',
+    dateLabel: 'Tuesday, Nov 10',
     isoDate: '20261110',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_5PM_TO_8PM,
   },
   {
-    dateLabel: 'Thursday, Nov 11',
+    dateLabel: 'Wednesday, Nov 11',
     isoDate: '20261111',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_5PM_TO_8PM,
   },
   {
-    dateLabel: 'Friday, Nov 12',
+    dateLabel: 'Thursday, Nov 12',
     isoDate: '20261112',
-    times: [
-      { label: '5:00 PM', startHour: 17 },
-      { label: '6:00 PM', startHour: 18 },
-      { label: '7:00 PM', startHour: 19 },
-      { label: '8:00 PM', startHour: 20 },
-    ],
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Friday, Nov 13',
+    isoDate: '20261113',
+    times: TIMES_5PM_TO_8PM,
+  },
+  // Saturday, Nov 14 (1 PM to 8 PM)
+  {
+    dateLabel: 'Saturday, Nov 14',
+    isoDate: '20261114',
+    times: TIMES_1PM_TO_8PM,
+  },
+  // Sunday, Nov 15 until Monday, Nov 23
+  {
+    dateLabel: 'Sunday, Nov 15',
+    isoDate: '20261115',
+    times: TIMES_1PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Monday, Nov 16',
+    isoDate: '20261116',
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Tuesday, Nov 17',
+    isoDate: '20261117',
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Wednesday, Nov 18',
+    isoDate: '20261118',
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Thursday, Nov 19',
+    isoDate: '20261119',
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Friday, Nov 20',
+    isoDate: '20261120',
+    times: TIMES_5PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Saturday, Nov 21',
+    isoDate: '20261121',
+    times: TIMES_1PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Sunday, Nov 22',
+    isoDate: '20261122',
+    times: TIMES_1PM_TO_8PM,
+  },
+  {
+    dateLabel: 'Monday, Nov 23',
+    isoDate: '20261123',
+    times: TIMES_5PM_TO_8PM,
   },
 ];
 
@@ -128,6 +159,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
     'absurd_questions',
   ]);
   const [beverage, setBeverage] = useState<CandidateFeatures['beverage']>('good_wine');
+  const [customProposal, setCustomProposal] = useState<string>('');
 
   // Stages: SETUP -> TRAINING -> ATTRIBUTION -> SCHEDULING
   const [currentStage, setCurrentStage] = useState<'SETUP' | 'TRAINING' | 'ATTRIBUTION' | 'SCHEDULING'>('SETUP');
@@ -170,6 +202,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
       locationId,
       topics: selectedTopics,
       beverage,
+      customProposal: customProposal.trim() || undefined,
     };
 
     setCurrentStage('TRAINING');
@@ -220,8 +253,11 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
 
   const beverageFormatted = BEVERAGE_WEIGHTS[beverage]?.label || 'Good Wine';
 
-  // Final message: Overfitting on developer confirmed (as requested)
-  const generatedMessage = `Neural Model Prediction: The ML model converged with 99.8% confidence on meeting at ${selectedVenue.name} (${selectedVenue.city}) on ${selectedDateSlot.dateLabel} at ${selectedTimeSlot.label} for ${topicsFormatted} & ${beverageFormatted}. Overfitting on developer confirmed. Shall we validate in real life? 😉`;
+  // Final message: incorporates custom idea if provided
+  const customProposalTrimmed = customProposal.trim();
+  const generatedMessage = customProposalTrimmed
+    ? `Neural Model Prediction: The ML model converged with 99.8% confidence on meeting at ${selectedVenue.name} (${selectedVenue.city}) on ${selectedDateSlot.dateLabel} at ${selectedTimeSlot.label} for ${topicsFormatted} & ${beverageFormatted} — plus custom proposal: "${customProposalTrimmed}". Overfitting on developer confirmed. Shall we validate in real life? 😉`
+    : `Neural Model Prediction: The ML model converged with 99.8% confidence on meeting at ${selectedVenue.name} (${selectedVenue.city}) on ${selectedDateSlot.dateLabel} at ${selectedTimeSlot.label} for ${topicsFormatted} & ${beverageFormatted}. Overfitting on developer confirmed. Shall we validate in real life? 😉`;
 
   const handleCopyMessage = () => {
     navigator.clipboard.writeText(generatedMessage);
@@ -246,7 +282,8 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
     const uid = `${Date.now()}-date-elise@helpimblushing.com`;
 
     const summary = `Date with Elise @ ${selectedVenue.name}`;
-    const description = `Neural Date Model confirmed meeting at ${selectedVenue.name} (${selectedVenue.city})\\nTopics: ${topicsFormatted}\\nBeverage: ${beverageFormatted}\\nInstagram: @${INSTAGRAM_USERNAME}`;
+    const customLine = customProposalTrimmed ? `\\nCustom Idea: ${customProposalTrimmed}` : '';
+    const description = `Neural Date Model confirmed meeting at ${selectedVenue.name} (${selectedVenue.city})\\nTopics: ${topicsFormatted}\\nBeverage: ${beverageFormatted}${customLine}\\nInstagram: @${INSTAGRAM_USERNAME}`;
     const location = `${selectedVenue.name}, ${selectedVenue.neighborhood}, ${selectedVenue.city}, CA`;
 
     // Standard RFC 5545 iCalendar syntax with CRLF line endings
@@ -286,7 +323,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-10 text-white font-mono select-none">
-      {/* Top minimal bar (removed v2.0 & calibrated text) */}
+      {/* Top minimal bar */}
       <div className="flex items-center justify-between border-b border-white/20 pb-3 mb-6 text-xs">
         <button
           onClick={onReturnToBsod}
@@ -304,7 +341,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
         </div>
       </div>
 
-      {/* Header (removed v2.0) */}
+      {/* Header */}
       <div className="space-y-2 mb-6">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight">
           NEURAL DATE COMPILER
@@ -405,7 +442,22 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
             </div>
           </div>
 
-          {/* Action Button: removed '& run inference' */}
+          {/* 4. Propose Your Own Idea (Freeform Input) */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-white/70">
+              <span>4. PROPOSE YOUR OWN IDEA (OPTIONAL):</span>
+              <span className="text-white/40 text-[10px]">FREEFORM INPUT</span>
+            </div>
+            <textarea
+              value={customProposal}
+              onChange={(e) => setCustomProposal(e.target.value)}
+              placeholder="Have a specific venue, activity, or plan in mind? Write it here..."
+              rows={2}
+              className="w-full p-3 bg-black/30 border-2 border-white/60 focus:border-white text-white font-mono text-xs sm:text-sm focus:outline-none rounded-none placeholder:text-white/40 leading-relaxed resize-none"
+            />
+          </div>
+
+          {/* Action Button */}
           <div className="pt-3">
             <button
               onClick={handleRunInference}
@@ -475,7 +527,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
                     key={idx} 
                     className="flex items-center justify-between p-2.5 border border-white/30 bg-black/20"
                   >
-                    <span className="font-bold text-white text-xs">{attr.featureName}</span>
+                    <span className="font-bold text-white text-xs truncate mr-2">{attr.featureName}</span>
                     <span className="font-mono font-bold text-emerald-300 shrink-0 text-xs">
                       +{attr.coefficient.toFixed(2)}
                     </span>
@@ -489,7 +541,7 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
             </div>
           </div>
 
-          {/* Action Button: removed '& time' */}
+          {/* Action Button: Proceed to Date Scheduling */}
           <div>
             <button
               onClick={() => setCurrentStage('SCHEDULING')}
@@ -656,6 +708,9 @@ export const NeuralDateCompiler: React.FC<NeuralDateCompilerProps> = ({ onReturn
             <div className="p-3 bg-black/25 border border-white/40 text-xs space-y-1.5">
               <p><strong>Location:</strong> {selectedVenue.name} ({selectedVenue.city})</p>
               <p><strong>When:</strong> {selectedDateSlot.dateLabel} at {selectedTimeSlot.label}</p>
+              {customProposalTrimmed && (
+                <p><strong>Custom Idea:</strong> {customProposalTrimmed}</p>
+              )}
             </div>
 
             <div className="space-y-2 pt-1">
