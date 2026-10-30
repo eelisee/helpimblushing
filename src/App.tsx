@@ -1,14 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppScreen } from './types';
 import { Screen1 } from './components/Screen1';
 import { RepairProgress } from './components/RepairProgress';
 import { Screen2 } from './components/Screen2';
 import { Screen4 } from './components/Screen4';
+import { NeuralDateCompiler } from './protocol/NeuralDateCompiler';
 
 export default function App() {
   const [screen, setScreen] = useState<AppScreen>('SCREEN_1');
 
+  // Detect direct URL routing on mount (e.g. #/model or #/protocol or ?mode=model)
+  useEffect(() => {
+    const checkDirectRoute = () => {
+      const hash = window.location.hash.toLowerCase();
+      const search = window.location.search.toLowerCase();
+
+      if (
+        hash.includes('model') ||
+        hash.includes('protocol') ||
+        hash.includes('neural') ||
+        search.includes('model') ||
+        search.includes('protocol') ||
+        search.includes('neural')
+      ) {
+        setScreen('PROJECT_02');
+      }
+    };
+
+    checkDirectRoute();
+    window.addEventListener('hashchange', checkDirectRoute);
+    return () => window.removeEventListener('hashchange', checkDirectRoute);
+  }, []);
+
   const handleRestart = () => {
+    window.location.hash = '';
+    setScreen('SCREEN_1');
+  };
+
+  const handleOpenProtocol = () => {
+    window.location.hash = '/model';
+    setScreen('PROJECT_02');
+  };
+
+  const handleReturnToBsod = () => {
+    window.location.hash = '';
     setScreen('SCREEN_1');
   };
 
@@ -37,6 +72,13 @@ export default function App() {
         {screen === 'SUPPORT_TICKET' && (
           <Screen4
             onRestart={handleRestart}
+            onOpenProtocol={handleOpenProtocol}
+          />
+        )}
+
+        {screen === 'PROJECT_02' && (
+          <NeuralDateCompiler
+            onReturnToBsod={handleReturnToBsod}
           />
         )}
       </main>

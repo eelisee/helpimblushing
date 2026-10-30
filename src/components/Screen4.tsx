@@ -5,12 +5,13 @@ import { BsodEmoticon } from './BsodEmoticon';
 
 interface Screen4Props {
   onRestart: () => void;
+  onOpenProtocol: () => void;
 }
 
 const PRESET_MESSAGE =
   "Hi! My system seems to have encountered an unexpected situation, and I have a feeling the developer might have something to do with it. 😉";
 
-export const Screen4: React.FC<Screen4Props> = ({ onRestart }) => {
+export const Screen4: React.FC<Screen4Props> = ({ onRestart, onOpenProtocol }) => {
   const [copied, setCopied] = useState<boolean>(false);
 
   const instagramUrl = `https://www.instagram.com/${INSTAGRAM_USERNAME}/`;
@@ -40,7 +41,7 @@ export const Screen4: React.FC<Screen4Props> = ({ onRestart }) => {
 
   return (
     <div className="w-full max-w-xl mx-auto px-5 sm:px-8 py-8 sm:py-16 text-white font-mono select-none">
-      {/* Emoticon matching the other screens */}
+      {/* Emoticon */}
       <BsodEmoticon />
 
       {/* Header */}
@@ -49,7 +50,7 @@ export const Screen4: React.FC<Screen4Props> = ({ onRestart }) => {
           SUPPORT TICKET
         </h1>
         <p className="text-base sm:text-lg text-white/95 leading-relaxed">
-          Contact human developer directly.
+          Contact human developer.
         </p>
       </div>
 
@@ -90,8 +91,18 @@ export const Screen4: React.FC<Screen4Props> = ({ onRestart }) => {
         </div>
       </div>
 
-      {/* Subtle reboot link */}
-      <div className="text-center pt-2">
+      {/* RUN NEURAL DATE MODEL Button (swapped to appear above reboot) */}
+      <div className="pt-2">
+        <button
+          onClick={onOpenProtocol}
+          className="w-full py-3.5 px-4 bg-transparent hover:bg-white hover:text-[#0078d7] active:bg-white/90 border-2 border-white text-white font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-colors rounded-none cursor-pointer whitespace-nowrap"
+        >
+          [ RUN NEURAL DATE MODEL → ]
+        </button>
+      </div>
+
+      {/* Reboot link below */}
+      <div className="text-center pt-5">
         <button
           onClick={onRestart}
           className="text-xs text-white/50 hover:text-white underline cursor-pointer font-mono"

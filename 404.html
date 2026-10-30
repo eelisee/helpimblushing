@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>helpimblushing.com | Redirecting</title>
+    <script>
+      // Single Page App redirect for GitHub Pages custom domains
+      var path = window.location.pathname.toLowerCase();
+      var search = window.location.search.toLowerCase();
+      var hash = window.location.hash.toLowerCase();
+
+      if (path.indexOf('model') !== -1 || path.indexOf('protocol') !== -1 || search.indexOf('model') !== -1 || search.indexOf('protocol') !== -1) {
+        window.location.replace('/#/model' + (window.location.search ? window.location.search : '') + (window.location.hash ? window.location.hash : ''));
+      } else {
+        window.location.replace('/' + (window.location.search ? window.location.search : '') + (window.location.hash ? window.location.hash : ''));
+      }
+    </script>
+  </head>
+  <body style="background-color: #0078d7; color: #ffffff; font-family: monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <p>Loading Neural Date Model...</p>
+  </body>
+</html>
